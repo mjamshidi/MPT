@@ -8,7 +8,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Monte Carlo Simulation!" );
+        
+    	System.out.println( "Monte Carlo Simulation!" );
         
         Portfolio A = new Portfolio("Aggressive", 9.4324, 15.675, 100_000);
         
