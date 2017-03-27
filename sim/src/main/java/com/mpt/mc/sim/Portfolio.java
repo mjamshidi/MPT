@@ -126,5 +126,14 @@ public class Portfolio {
 	public void setSim10WorstCase(double sim10WorstCase) {
 		this.sim10WorstCase = sim10WorstCase;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Portfolio [type=" + type + ", mean=" + mean + ", standardDeviation=" + standardDeviation
+				+ ", investment=" + investment + ", simMedian=" + simMedian + ", sim10BestCase=" + sim10BestCase
+				+ ", sim10WorstCase=" + sim10WorstCase + "]";
+	}
 
 }
