@@ -20,13 +20,7 @@ public class Portfolio {
 	private double standardDeviation;
 	
 	private double investment;
-	
-	/**
-	 * Simulation Results
-	 */
-	private double simMedian;
-	private double sim10BestCase;
-	private double sim10WorstCase;
+
 	public Portfolio() {
 		// TODO Auto-generated constructor stub
 	}
@@ -90,50 +84,14 @@ public class Portfolio {
 	public void setInvestment(double investment) {
 		this.investment = investment;
 	}
-	/**
-	 * @return the simMedian
-	 */
-	public double getSimMedian() {
-		return simMedian;
-	}
-	/**
-	 * @param simMedian the simMedian to set
-	 */
-	public void setSimMedian(double simMedian) {
-		this.simMedian = simMedian;
-	}
-	/**
-	 * @return the sim10BestCase
-	 */
-	public double getSim10BestCase() {
-		return sim10BestCase;
-	}
-	/**
-	 * @param sim10BestCase the sim10BestCase to set
-	 */
-	public void setSim10BestCase(double sim10BestCase) {
-		this.sim10BestCase = sim10BestCase;
-	}
-	/**
-	 * @return the sim10WorstCase
-	 */
-	public double getSim10WorstCase() {
-		return sim10WorstCase;
-	}
-	/**
-	 * @param sim10WorstCase the sim10WorstCase to set
-	 */
-	public void setSim10WorstCase(double sim10WorstCase) {
-		this.sim10WorstCase = sim10WorstCase;
-	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "Portfolio [type=" + type + ", mean=" + mean + ", standardDeviation=" + standardDeviation
-				+ ", investment=" + investment + ", simMedian=" + simMedian + ", sim10BestCase=" + sim10BestCase
-				+ ", sim10WorstCase=" + sim10WorstCase + "]";
+				+ ", investment=" + investment + "]";
 	}
 
 }
