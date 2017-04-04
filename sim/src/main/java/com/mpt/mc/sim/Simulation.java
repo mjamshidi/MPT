@@ -15,8 +15,9 @@ public class Simulation {
 	 * 
 	 */
 	private Portfolio p;
-	private double[] results;
-	private Random r;// = new Random();
+	private SimulationResults res;
+	private PortfolioSimulationValues simulationValues;
+	private Random r;
 	private double inflation;
 	private int numSimulations;
 	private int numYears;
@@ -34,11 +35,12 @@ public class Simulation {
 	 */
 	public Simulation(Portfolio p, double inflation, int numSimulations, int numYears) {
 		this.p = p;
+		this.simulationValues = new PortfolioSimulationValues(p);
+		this.res = new SimulationResults(numSimulations);
 		this.inflation = inflation;
 		this.numSimulations = numSimulations;
 		this.numYears = numYears;
 		r = new Random();
-		results = new double[this.numSimulations];
 	}
 
 	public void simulate(){
@@ -56,27 +58,22 @@ public class Simulation {
 
 			}
 			
-			results[i] = simResult;
+			res.addResults(simResult);
 		}
-		Arrays.sort(results);
 		
-		p.setSimMedian(computeAverage(results, 49.5));
+		simulationValues.setMedian(res.getPercentile(50));
 		
-		p.setSim10BestCase(computeAverage(results, 90));
+		simulationValues.setTenBestCase(res.getPercentile(90));
 		
-		p.setSim10WorstCase(computeAverage(results, 10));
+		simulationValues.setTenWorstCase(res.getPercentile(10));
 		
 	}
 
-	private double computeAverage(double[] ar, double percent){
-		
-		double result = 0;
-		int startIndex = (int) (ar.length*percent/100);
-		int onePercent = ar.length/100;
-		for(int i = startIndex;i<startIndex+onePercent;i++){
-			result += ar[i];
-		}
-		return result/onePercent;
+	/**
+	 * @return the simulationValues
+	 */
+	public PortfolioSimulationValues getSimulationValues() {
+		return simulationValues;
 	}
 	
 }

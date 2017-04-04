@@ -17,33 +17,7 @@ import org.junit.Test;
  */
 public class SimulationTest {
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@After
-	public void tearDown() throws Exception {
-	}
 
 	/**
 	 * Test method for {@link com.mpt.mc.sim.Simulation#Simulation()}.
@@ -66,7 +40,21 @@ public class SimulationTest {
 	 */
 	@Test
 	public void testSimulate() {
-		assertTrue( true );
+        Portfolio A = new Portfolio("Aggressive", 9.4324, 15.675, 100_000);
+        
+        Portfolio I = new Portfolio("Conservative", 6.189, 6.3438, 100_000);
+        
+        Simulation ASim = new Simulation(A, 0.035, 10_000, 20);
+        
+        Simulation ISim = new Simulation(I, 0.035, 10_000, 20);
+        
+        ASim.simulate();
+        
+        ISim.simulate();
+        
+        System.out.println(ASim.getSimulationValues().toString());
+        
+        System.out.println(ISim.getSimulationValues().toString());
 	}
 
 }
